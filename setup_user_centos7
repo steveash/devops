@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ## initial install script that just sets up the user.  Should be run from the user that will be used
-## wget -qO- https://raw.github.com/steveash/devops/master/scriptname.sh | sh
-## curl -L https://raw.github.com/steveash/devops/master/scriptname.sh | sh
+## wget -qO- https://raw.github.com/steveash/devops/master/scriptname | sh
+## curl -L https://raw.github.com/steveash/devops/master/scriptname | sh
 
 echo copying public keys...
 wget -q https://raw.github.com/steveash/devops/master/ashdev_rsa.pub
@@ -15,11 +15,10 @@ if [ ! -f ~/.ssh/authorized_keys ]; then
     chmod 700 ~/.ssh
 fi
 
-TMUX_CFG = "~/.tmux.conf"
-if [ ! -f $TMUX_CFG ]; then
-    echo 'set-option -g prefix C-a' >> $TMUX_CFG
-    echo 'bind-key C-a last-window' >> $TMUX_CFG
-    echo 'set -g base-index 1' >> $TMUX_CFG
+if [ ! -f "~/.tmux.conf" ]; then
+    echo 'set-option -g prefix C-a' >> "~/.tmux.conf"
+    echo 'bind-key C-a last-window' >> "~/.tmux.conf"
+    echo 'set -g base-index 1' >> "~/.tmux.conf"
 fi
 
 ##### zsh and shell config stuff
@@ -28,13 +27,12 @@ sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.
 command -v zsh | sudo tee -a /etc/shells
 sudo chsh -s `which zsh`
 
-ZSH_CFG = "~/.zshrc"
 wget -q https://raw.github.com/steveash/devops/master/zshrc_limited
 
-if [ ! -f "${ZSH_CFG}.original" ]; then
-    cp $ZSH_CFG "${ZSH_CFG}.original"
+if [ ! -f ~/.zshrc.original ]; then
+    cp ~/.zshrc ~/.zshrc.original
 fi
-mv zshrc_limited $ZSH_CFG
+mv zshrc_limited ~/.zshrc
 
 echo '******** all done **********'
 
