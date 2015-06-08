@@ -4,8 +4,12 @@
 ## curl -L https://raw.github.com/steveash/devops/master/scriptname | sh
 
 echo copying public keys...
-wget -q https://raw.github.com/steveash/devops/master/ashdev_rsa.pub
-wget -q https://raw.github.com/steveash/devops/master/stevelaptop_rsa.pub
+if [ ! -f ashdev_rsa.pub ]; then
+    wget -q https://raw.github.com/steveash/devops/master/ashdev_rsa.pub
+fi
+if [ ! -f stevelaptop_rsa.pub ]; then
+    wget -q https://raw.github.com/steveash/devops/master/stevelaptop_rsa.pub
+fi
 
 if [ ! -f ~/.ssh/authorized_keys ]; then
     mkdir -p ~/.ssh
@@ -13,6 +17,8 @@ if [ ! -f ~/.ssh/authorized_keys ]; then
     cat stevelaptop_rsa.pub >> ~/.ssh/authorized_keys
     chmod 600 ~/.ssh/authorized_keys
     chmod 700 ~/.ssh
+    rm ashdev_rsa.pub*
+    rm stevelaptop_rsa.pub*
 fi
 
 if [ ! -f ~/.tmux.conf ]; then
@@ -26,14 +32,17 @@ fi
 echo clone ohmyzsh
 sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 command -v zsh | sudo tee -a /etc/shells
-sudo chsh -s `which zsh`
+echo 'About to change your shell for your user, you apparently have to type in your password:'
+chsh -s /usr/bin/zsh
 
-wget -q https://raw.github.com/steveash/devops/master/zshrc_limited
+if [ ! -f zshrc_limited ]; then
+    wget -q https://raw.github.com/steveash/devops/master/zshrc_limited
+fi
 
 if [ ! -f ~/.zshrc.original ]; then
     cp ~/.zshrc ~/.zshrc.original
 fi
 mv zshrc_limited ~/.zshrc
-
+exec zsh
 echo '******** all done **********'
 
