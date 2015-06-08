@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 ## initial install script that just sets up the base tools that I need, you should log is as root and then call:
-## curl -L https://raw.github.com/steveash/devops/master/scriptname | bash
-## wget -qO- https://raw.github.com/steveash/devops/master/setup_centos7 | bash
-set -e
+## curl -L https://raw.github.com/steveash/devops/master/scriptname | sh
+## wget -qO- https://raw.github.com/steveash/devops/master/setup_centos7 | sh
+#set -e
 
-read -p "Add user to sudoers? Enter username or blank to skip" vvv
-echo "$vvv ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${vvv}_sudoer
+#read -p "Add user to sudoers? Enter username or blank to skip" vvv
+#echo "$vvv ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${vvv}_sudoer
 
 echo updating system
 sudo yum update -y
@@ -32,7 +32,7 @@ echo installing file compression utils
 yum install -y zip unzip sharutils unrar p7zip-full rar
 
 echo installing java
-wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.tar.gz
+wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.rpm
 rpm -ivh jdk-8u45-linux-x64.rpm
 
 echo '******************** ALL DONE ***************************'
