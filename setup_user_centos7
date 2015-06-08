@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 ## initial install script that just sets up the user.  Should be run from the user that will be used
 ## wget -qO- https://raw.github.com/steveash/devops/master/scriptname.sh | sh
+## curl -L https://raw.github.com/steveash/devops/master/scriptname.sh | sh
 
 echo copying public keys...
 wget -q https://raw.github.com/steveash/devops/master/ashdev_rsa.pub

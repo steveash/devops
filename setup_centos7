@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 ## initial install script that just sets up the base tools that I need, you should log is as root and then call:
-## wget -qO- https://raw.github.com/steveash/devops/master/setup_centos7.sh | sh
-
+## curl -L https://raw.github.com/steveash/devops/master/scriptname | bash
+## wget -qO- https://raw.github.com/steveash/devops/master/setup_centos7 | bash
 set -e
 
 read -p "Add user to sudoers? Enter username or blank to skip" vvv
@@ -9,6 +9,8 @@ echo "$vvv ALL=(ALL) NOPASSWD: ALL" > /etc/sudoers.d/${vvv}_sudoer
 
 echo updating system
 sudo yum update -y
+
+yum install -y wget
 
 # get the centos extra packages
 wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
