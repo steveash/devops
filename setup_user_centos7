@@ -15,10 +15,11 @@ if [ ! -f ~/.ssh/authorized_keys ]; then
     chmod 700 ~/.ssh
 fi
 
-if [ ! -f "~/.tmux.conf" ]; then
-    echo 'set-option -g prefix C-a' >> "~/.tmux.conf"
-    echo 'bind-key C-a last-window' >> "~/.tmux.conf"
-    echo 'set -g base-index 1' >> "~/.tmux.conf"
+if [ ! -f ~/.tmux.conf ]; then
+    touch ~/.tmux.conf
+    echo 'set-option -g prefix C-a' >> ~/.tmux.conf
+    echo 'bind-key C-a last-window' >> ~/.tmux.conf
+    echo 'set -g base-index 1' >> ~/.tmux.conf
 fi
 
 ##### zsh and shell config stuff
