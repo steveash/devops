@@ -32,18 +32,11 @@ fi
 echo clone ohmyzsh
 sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 command -v zsh | sudo tee -a /etc/shells
-
-if [ ! -f zshrc_limited ]; then
-    wget -q https://raw.github.com/steveash/devops/master/zshrc_limited
-fi
-
-if [ ! -f ~/.zshrc.original ]; then
-    cp ~/.zshrc ~/.zshrc.original
-fi
-mv zshrc_limited ~/.zshrc
+sed -i 's/plugins=\(.*/plugins=(git z)/' .zshrc
 exec zsh
 
-echo change your shell by typing: "chsh -s /usr/bin/zsh"
+echo ***************************************************
+echo change your shell by typing: chsh -s /usr/bin/zsh
+echo ***************************************************
 
-echo '******** all done **********'
 
