@@ -32,8 +32,6 @@ fi
 echo clone ohmyzsh
 sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 command -v zsh | sudo tee -a /etc/shells
-echo 'About to change your shell for your user, you apparently have to type in your password:'
-chsh -s /usr/bin/zsh
 
 if [ ! -f zshrc_limited ]; then
     wget -q https://raw.github.com/steveash/devops/master/zshrc_limited
@@ -44,5 +42,8 @@ if [ ! -f ~/.zshrc.original ]; then
 fi
 mv zshrc_limited ~/.zshrc
 exec zsh
+
+echo change your shell by typing: "chsh -s /usr/bin/zsh"
+
 echo '******** all done **********'
 
