@@ -10,30 +10,30 @@
 echo updating system
 sudo yum update -y
 
-yum install -y wget
+sudo yum install -y wget
 
 # get the centos extra packages
-wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
-wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+sudo wget http://pkgs.repoforge.org/rpmforge-release/rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
+sudo wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
 
-rpm -Uvh rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
-rpm -ivh epel-release-7-5.noarch.rpm
+sudo rpm -Uvh rpmforge-release-0.5.3-1.el7.rf.x86_64.rpm
+sudo rpm -ivh epel-release-7-5.noarch.rpm
 
 ######## tools 
 echo installing essentials and build tools
 
 echo installing git
-yum install -y git
+sudo yum install -y git
 
 echo installing general system software 
-yum install -y zsh curl htop speedometer byobu tmux emacs nano net-tools iftop telnet dtrace
+sudo yum install -y zsh curl htop speedometer byobu tmux emacs nano net-tools iftop telnet dtrace
 
 echo installing file compression utils
-yum install -y zip unzip sharutils unrar p7zip-full rar
+sudo yum install -y zip unzip sharutils unrar p7zip-full rar
 
 echo installing java
-wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.rpm
-rpm -ivh jdk-8u45-linux-x64.rpm
+sudo wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u45-b14/jdk-8u45-linux-x64.rpm
+sudo rpm -ivh jdk-8u45-linux-x64.rpm
 
 echo '******************** ALL DONE ***************************'
 
