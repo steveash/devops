@@ -32,11 +32,12 @@ fi
 echo clone ohmyzsh
 sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 command -v zsh | sudo tee -a /etc/shells
-sed -i 's/plugins=\(.*/plugins=(git z)/' .zshrc
+sed -i 's/plugins=\(.*\)/plugins=(git z)/' .zshrc
+sudo chsh -s /usr/bin/zsh $(whoami)
 exec zsh
 
 echo ***************************************************
-echo change your shell by typing: chsh -s /usr/bin/zsh
+echo  ALL DONE
 echo ***************************************************
 
 
