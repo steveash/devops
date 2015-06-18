@@ -26,7 +26,7 @@ echo installing git
 sudo yum install -y git
 
 echo installing general system software 
-sudo yum install -y zsh curl htop speedometer byobu tmux emacs nano net-tools iftop telnet dtrace
+yum install -y zsh curl htop speedometer byobu tmux emacs nano net-tools iftop telnet bind-utils dtrace
 
 echo installing file compression utils
 sudo yum install -y zip unzip sharutils unrar p7zip-full rar
