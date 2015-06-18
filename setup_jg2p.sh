@@ -4,7 +4,17 @@ cd ~
 mkdir -p code
 cd code
 git clone https://github.com/steveash/jg2p.git
-cd jg2p
+git clone https://github.com/steveash/kylm.git
+git clone https://github.com/steveash/Mallet.git
+
+cd kylm
+ant dist
+./install.sh
+
+cd ../Mallet
+mvn install -Pno-tests
+
+cd ../jg2p
 mvn clean install -DskipTests
 
 echo '********************************************'
