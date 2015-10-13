@@ -3,7 +3,7 @@
 ##
 
 sudo apt-get update -y
-sudo apt-get install -y wget git zsh curl htop byobu tmux emacs nano net-tools telnet zip unzip sharutils unrar p7zip-full rar
+sudo apt-get install -y wget git zsh curl htop byobu tmux emacs nano net-tools telnet zip unzip sharutils p7zip-full
 
 echo installing java
 sudo add-apt-repository -y ppa:webupd8team/java
