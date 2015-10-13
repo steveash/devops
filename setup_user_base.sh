@@ -33,7 +33,7 @@ echo clone ohmyzsh
 sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh | sh
 command -v zsh | sudo tee -a /etc/shells
 sed -i 's/plugins=\(.*\)/plugins=(git z x)/' .zshrc
-sudo chsh -s /usr/bin/zsh $(whoami)
+sudo chsh -s /usr/bin/zsh
 exec zsh
 
 echo ***************************************************
