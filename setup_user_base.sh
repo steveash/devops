@@ -34,6 +34,10 @@ sudo curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.
 command -v zsh | sudo tee -a /etc/shells
 sed -i 's/plugins=\(.*\)/plugins=(git z extract)/' .zshrc
 sudo chsh -s /usr/bin/zsh
+
+git config --global user.email "stevemash@gmail.com"
+git config --global user.name "Steve Ash"
+
 exec zsh
 
 echo ***************************************************
