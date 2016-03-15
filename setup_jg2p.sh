@@ -14,7 +14,7 @@ git clone https://github.com/steveash/jg2p.git
 ##cd ../Mallet
 ##mvn install -Pno-tests
 
-cd ../jg2p
+cd jg2p
 mvn install -DskipTests
 
 echo '********************************************'
